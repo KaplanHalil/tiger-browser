@@ -1,0 +1,374 @@
+/* Tiger Browser — square, flat, Omarchy-native chrome.
+ * Built for Firefox 158's vertical tabs. Selectors can change between
+ * Firefox releases; see docs/TROUBLESHOOTING.md if something drifts.
+ */
+
+:root {
+  --tiger-bg: var(--lwt-accent-color, #060b1e);
+  --tiger-surface: var(--toolbar-bgcolor, #0b1128);
+  --tiger-text: var(--toolbar-color, #ffcead);
+  --tiger-muted: var(--lwt-text-color, #6d7db6);
+  --tiger-accent: var(--lwt-tab-line-color, #7d82d9);
+  --tiger-line: color-mix(in srgb, var(--tiger-text) 18%, transparent);
+  --tiger-hover: color-mix(in srgb, var(--tiger-accent) 16%, transparent);
+  --tiger-font: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+
+  /* Kill every rounded corner Firefox knows about. */
+  --border-radius-small: 0px !important;
+  --border-radius-medium: 0px !important;
+  --border-radius-large: 0px !important;
+  --border-radius-circle: 0px !important;
+  --tab-border-radius: 0px !important;
+  --button-border-radius: 0px !important;
+  --panel-border-radius: 0px !important;
+  --toolbarbutton-border-radius: 0px !important;
+
+  /* Panels and menus */
+  --panel-background: var(--tiger-surface) !important;
+  --panel-color: var(--tiger-text) !important;
+  --panel-border-color: var(--tiger-line) !important;
+  --panel-separator-color: var(--tiger-line) !important;
+  --arrowpanel-background: var(--tiger-surface) !important;
+  --arrowpanel-color: var(--tiger-text) !important;
+  --arrowpanel-border-color: var(--tiger-line) !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Window / toolbox
+ * -------------------------------------------------------------------------- */
+#navigator-toolbox {
+  background: var(--tiger-bg) !important;
+  border-bottom: 1px solid var(--tiger-line) !important;
+  box-shadow: none !important;
+}
+
+#TabsToolbar {
+  visibility: collapse !important;
+}
+
+#toolbar-menubar {
+  display: none !important;
+}
+
+#titlebar {
+  background: var(--tiger-bg) !important;
+}
+
+#nav-bar {
+  background: var(--tiger-bg) !important;
+  color: var(--tiger-text) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 4px 6px !important;
+  min-height: 40px !important;
+}
+
+#nav-bar-customization-target {
+  gap: 2px;
+}
+
+/* The new tab is an extension page. Keep its Tiger icon, drop the long
+ * "Extension (Tiger Tools)" label from the URL bar. */
+#identity-box.extensionPage #identity-icon-label {
+  display: none !important;
+}
+
+#identity-box.extensionPage #identity-icon-box {
+  padding-inline: 6px !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Vertical tabs
+ * -------------------------------------------------------------------------- */
+#sidebar-main {
+  background: var(--tiger-bg) !important;
+  color: var(--tiger-text) !important;
+  border-inline-end: 1px solid var(--tiger-line) !important;
+}
+
+#sidebar-main,
+#sidebar-box,
+#sidebar {
+  background: var(--tiger-bg) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] {
+  --tab-margin-block: 2px;
+  --tab-margin-inline: 6px;
+  --tab-min-height: 34px;
+  padding-inline: 6px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab {
+  padding: 0 !important;
+  margin-inline: 0 !important;
+  border: 0 !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-background {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover > .tab-stack > .tab-background {
+  background: var(--tiger-hover) !important;
+  border-color: var(--tiger-line) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected] > .tab-stack > .tab-background,
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background {
+  background: var(--tiger-surface) !important;
+  border-color: var(--tiger-line) !important;
+  box-shadow: inset 2px 0 0 var(--tiger-accent) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-content {
+  color: var(--tiger-muted) !important;
+  padding-inline: 10px !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab:hover .tab-content {
+  color: var(--tiger-text) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[selected] .tab-content,
+#tabbrowser-tabs[orient="vertical"] .tabbrowser-tab[visuallyselected] .tab-content {
+  color: var(--tiger-text) !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-label {
+  font-family: var(--tiger-font) !important;
+  font-size: 12px !important;
+  letter-spacing: 0.01em !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-close-button {
+  border-radius: 0 !important;
+}
+
+#tabbrowser-tabs[orient="vertical"] .tab-icon-image {
+  border-radius: 0 !important;
+}
+
+/* Firefox 160's Nova sidebar exposes the strip as #vertical-tabs. Keep the
+ * same square treatment for both the old and new markup. */
+#vertical-tabs .tabbrowser-tab {
+  padding: 0 !important;
+  margin-inline: 0 !important;
+}
+
+#vertical-tabs .tab-background {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+#vertical-tabs .tabbrowser-tab:hover > .tab-stack > .tab-background {
+  background: var(--tiger-hover) !important;
+  border-color: var(--tiger-line) !important;
+}
+
+#vertical-tabs .tabbrowser-tab[selected] > .tab-stack > .tab-background,
+#vertical-tabs .tabbrowser-tab[visuallyselected] > .tab-stack > .tab-background {
+  background: var(--tiger-surface) !important;
+  border-color: var(--tiger-line) !important;
+  box-shadow: inset 2px 0 0 var(--tiger-accent) !important;
+}
+
+#vertical-tabs .tab-content {
+  color: var(--tiger-muted) !important;
+}
+
+#vertical-tabs .tabbrowser-tab:hover .tab-content,
+#vertical-tabs .tabbrowser-tab[selected] .tab-content,
+#vertical-tabs .tabbrowser-tab[visuallyselected] .tab-content {
+  color: var(--tiger-text) !important;
+}
+
+#vertical-tabs .tab-label {
+  font-family: var(--tiger-font) !important;
+  font-size: 12px !important;
+}
+
+#vertical-tabs .tab-close-button {
+  border-radius: 0 !important;
+  color: var(--tiger-muted) !important;
+  filter: grayscale(1);
+  opacity: 0.62;
+}
+
+#vertical-tabs .tab-close-button:hover {
+  color: var(--tiger-text) !important;
+  background: var(--tiger-hover) !important;
+  filter: none;
+  opacity: 1;
+}
+
+#tabs-newtab-button,
+#vertical-tabs-newtab-button {
+  border-radius: 0 !important;
+  margin: 4px 6px !important;
+  border: 1px solid var(--tiger-line) !important;
+  background: transparent !important;
+}
+
+#tabs-newtab-button:hover,
+#vertical-tabs-newtab-button:hover {
+  background: var(--tiger-hover) !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Toolbar buttons, URL bar, identity box
+ * -------------------------------------------------------------------------- */
+toolbarbutton,
+.toolbarbutton-1,
+.toolbarbutton-1 > .toolbarbutton-icon,
+.toolbarbutton-1 > .toolbarbutton-badge-stack {
+  border-radius: 0 !important;
+}
+
+toolbarbutton:hover,
+.toolbarbutton-1:hover {
+  background: var(--tiger-hover) !important;
+}
+
+#urlbar-background,
+#searchbar {
+  background: var(--tiger-surface) !important;
+  border: 1px solid var(--tiger-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background,
+#searchbar:focus-within {
+  border-color: var(--tiger-accent) !important;
+  box-shadow: inset 0 0 0 1px var(--tiger-accent) !important;
+}
+
+#urlbar-input,
+#searchbar input,
+#urlbar-input-container {
+  font-family: var(--tiger-font) !important;
+  color: var(--tiger-text) !important;
+}
+
+#urlbar-input::placeholder {
+  color: var(--tiger-muted) !important;
+  opacity: 1 !important;
+}
+
+#identity-box,
+#page-action-buttons,
+#tracking-protection-icon-container {
+  border-radius: 0 !important;
+}
+
+#tracking-protection-icon-container:hover,
+#identity-box:hover,
+#page-action-buttons > toolbarbutton:hover {
+  background: var(--tiger-hover) !important;
+}
+
+/* Remove the things Tiger does not use. */
+#firefox-view-button,
+#save-to-pocket-button,
+#alltabs-button {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Popups, menus, panels, results
+ * -------------------------------------------------------------------------- */
+menupopup,
+panel,
+#urlbar-results,
+.urlbarView,
+#PopupSearchAutoComplete,
+#downloadsPanel,
+#appMenu-popup,
+#unified-extensions-panel {
+  --panel-background: var(--tiger-surface) !important;
+  --panel-color: var(--tiger-text) !important;
+  --panel-border-color: var(--tiger-line) !important;
+  --panel-separator-color: var(--tiger-line) !important;
+  --arrowpanel-background: var(--tiger-surface) !important;
+  --arrowpanel-color: var(--tiger-text) !important;
+  --arrowpanel-border-color: var(--tiger-line) !important;
+  border-radius: 0 !important;
+}
+
+menupopup {
+  background: var(--tiger-surface) !important;
+  color: var(--tiger-text) !important;
+  border: 1px solid var(--tiger-line) !important;
+}
+
+menuitem,
+menu {
+  border-radius: 0 !important;
+  font-family: var(--tiger-font) !important;
+  font-size: 12px !important;
+}
+
+menuitem:hover,
+menu:hover,
+menuitem[_moz-menuactive="true"],
+menu[_moz-menuactive="true"] {
+  background: var(--tiger-hover) !important;
+  color: var(--tiger-text) !important;
+}
+
+.urlbarView-row {
+  border-radius: 0 !important;
+}
+
+.urlbarView-row[selected] {
+  background: var(--tiger-hover) !important;
+}
+
+.urlbarView-url {
+  color: var(--tiger-muted) !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Find bar, status panel, notifications
+ * -------------------------------------------------------------------------- */
+findbar {
+  background: var(--tiger-surface) !important;
+  color: var(--tiger-text) !important;
+  border-top: 1px solid var(--tiger-line) !important;
+}
+
+findbar textbox {
+  border-radius: 0 !important;
+  background: var(--tiger-bg) !important;
+  border: 1px solid var(--tiger-line) !important;
+}
+
+#statuspanel-label {
+  background: var(--tiger-surface) !important;
+  color: var(--tiger-text) !important;
+  border: 1px solid var(--tiger-line) !important;
+  border-radius: 0 !important;
+  font-family: var(--tiger-font) !important;
+}
+
+notification-message,
+.notificationbox-stack {
+  border-radius: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Scrollbars inside chrome
+ * -------------------------------------------------------------------------- */
+#sidebar-main scrollbar,
+#tabbrowser-tabs scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--tiger-line) transparent;
+}

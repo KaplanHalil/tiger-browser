@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Tiger Tools",
+  "version": "0.1.0",
+  "description": "Tiger terminal toggle and the Omarchy new tab.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tiger-tools@tiger-browser.dev",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["nativeMessaging", "theme"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Tiger Terminal (Alt+Shift+T)",
+    "default_area": "navbar",
+    "browser_style": false,
+    "default_icon": {
+      "16": "icons/terminal-16.png",
+      "32": "icons/terminal-32.png",
+      "48": "icons/terminal-48.png",
+      "96": "icons/terminal-96.png",
+      "128": "icons/terminal-128.png"
+    }
+  },
+  "commands": {
+    "toggle-terminal": {
+      "suggested_key": {
+        "default": "Alt+Shift+T"
+      },
+      "description": "Toggle the Tiger terminal"
+    }
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "16": "icons/mark-16.png",
+    "32": "icons/mark-32.png",
+    "48": "icons/mark-48.png",
+    "96": "icons/mark-96.png",
+    "128": "icons/mark-128.png"
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiger</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+
+  <main class="shell">
+    <header class="brand">
+      <img class="mark" src="icons/mark-128.png" alt="">
+      <div class="brand-text">
+        <h1>TIGER</h1>
+        <p>PRIVATE BY DEFAULT</p>
+      </div>
+      <div class="badge">LITE 0.1</div>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">NEW TAB</p>
+      <h2>Where to?</h2>
+
+      <form id="search" action="https://www.google.com/search" method="get" role="search">
+        <span class="prompt" aria-hidden="true">&gt;</span>
+        <input id="q" name="q" type="search" placeholder="Search with Google"
+               autocomplete="off" spellcheck="false" autofocus>
+        <button class="go" type="submit" title="Search">↵</button>
+      </form>
+
+      <div class="engines" role="group" aria-label="Search engine">
+        <button type="button" data-engine="google" class="active">GOOGLE</button>
+        <button type="button" data-engine="ddg">DUCKDUCKGO</button>
+        <span class="engine-note">suggestions off</span>
+      </div>
+    </section>
+
+    <nav class="links" aria-label="Quick links">
+      <a class="link" href="https://github.com/KaplanHalil">
+        <span class="glyph">GH</span><span>GITHUB</span>
+      </a>
+      <a class="link" href="https://omarchy.org">
+        <span class="glyph">OM</span><span>OMARCHY</span>
+      </a>
+      <a class="link" href="https://news.ycombinator.com">
+        <span class="glyph">HN</span><span>HACKER NEWS</span>
+      </a>
+      <a class="link" href="https://www.youtube.com">
+        <span class="glyph">YT</span><span>YOUTUBE</span>
+      </a>
+    </nav>
+
+    <section class="status" aria-label="Tiger Baseline">
+      <button class="chip" type="button" data-url="about:preferences#privacy"><span class="dot"></span>ETP STRICT</button>
+      <button class="chip" type="button" data-url="about:preferences#privacy"><span class="dot"></span>HTTPS-ONLY</button>
+      <button class="chip" type="button" data-url="about:preferences#privacy"><span class="dot"></span>DOH QUAD9</button>
+      <button class="chip" type="button" data-url="about:addons"><span class="dot"></span>UBO</button>
+      <button class="chip" type="button" data-url="about:addons"><span class="dot"></span>BITWARDEN</button>
+    </section>
+
+    <footer>
+      <span>TIGER BASELINE</span>
+      <span>NO TELEMETRY · NOT ANONYMITY</span>
+      <span id="theme-name">OMARCHY</span>
+    </footer>
+  </main>
+
+  <script src="newtab.js"></script>
+</body>
+</html>

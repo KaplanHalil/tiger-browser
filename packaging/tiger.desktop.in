@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Tiger Browser
+GenericName=Web Browser
+Comment=Privacy-hardened, Omarchy-native Firefox profile
+Exec=@EXEC@ %u
+Icon=tiger
+Terminal=false
+Categories=Network;WebBrowser;
+Keywords=browser;web;tiger;omarchy;privacy;
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/about;
+StartupNotify=true
+StartupWMClass=firefox

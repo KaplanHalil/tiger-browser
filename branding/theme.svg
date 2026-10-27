@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Theme">
+  <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#7D82D9" stroke-width="2"/>
+  <rect x="7" y="7" width="8" height="8" fill="#7D82D9"/>
+  <rect x="17" y="7" width="8" height="8" fill="#ED5B5A"/>
+  <rect x="7" y="17" width="8" height="8" fill="#92A593"/>
+  <rect x="17" y="17" width="8" height="8" fill="#E9BB4F"/>
+</svg>

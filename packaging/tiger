@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROFILE="${TIGER_PROFILE:-${XDG_CONFIG_HOME:-$HOME/.config}/tiger/profile}"
+CONFIG_DIR="$(dirname "$PROFILE")"
+FIREFOX="${TIGER_FIREFOX:-}"
+
+if [[ -z "$FIREFOX" && -f "$CONFIG_DIR/firefox.path" ]]; then
+  read -r FIREFOX <"$CONFIG_DIR/firefox.path" || true
+fi
+
+if [[ -z "$FIREFOX" ]]; then
+  if command -v firefox >/dev/null 2>&1; then
+    FIREFOX="$(command -v firefox)"
+  elif [[ -x /usr/lib/firefox/firefox ]]; then
+    FIREFOX=/usr/lib/firefox/firefox
+  elif [[ -x "$HOME/.local/share/tiger/firefox/firefox" ]]; then
+    FIREFOX="$HOME/.local/share/tiger/firefox/firefox"
+  else
+    echo "Tiger: Firefox bulunamadı." >&2
+    echo "Kur: omarchy install browser firefox" >&2
+    exit 1
+  fi
+fi
+
+if [[ ! -d "$PROFILE" ]]; then
+  echo "Tiger: profil yok: $PROFILE" >&2
+  echo "Önce ./install.sh çalıştır." >&2
+  exit 1
+fi
+
+export MOZ_ENABLE_WAYLAND=1
+exec "$FIREFOX" --profile "$PROFILE" "$@"

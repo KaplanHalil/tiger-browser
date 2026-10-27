@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tiger Theme</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <img class="mark" src="icons/mark-48.png" alt="">
+    <div class="titles">
+      <h1>TIGER THEME</h1>
+      <p id="current">LOADING</p>
+    </div>
+    <span class="live" id="live">LIVE</span>
+  </header>
+
+  <div class="find">
+    <span aria-hidden="true">&gt;</span>
+    <input id="filter" type="search" placeholder="Filter Omarchy themes" autocomplete="off" spellcheck="false" autofocus>
+  </div>
+
+  <div id="list" class="list" role="listbox" aria-label="Omarchy themes"></div>
+
+  <footer class="foot">
+    <span>OMARCHY</span>
+    <span id="count">0 THEMES</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

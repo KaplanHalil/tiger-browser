@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tiger Browser">
+  <rect width="64" height="64" fill="#060B1E"/>
+
+  <!-- ears -->
+  <path d="M9 21 15 5 27 13Z" fill="#7D82D9"/>
+  <path d="M55 21 49 5 37 13Z" fill="#7D82D9"/>
+  <path d="M14 17 17 9 23 14Z" fill="#060B1E"/>
+  <path d="M50 17 47 9 41 14Z" fill="#060B1E"/>
+
+  <!-- head -->
+  <path d="M9 22h46v19L32 59 9 41Z" fill="#7D82D9"/>
+
+  <!-- muzzle -->
+  <path d="M18 29h28v11L32 51 18 40Z" fill="#C2C4F0"/>
+
+  <!-- forehead stripes -->
+  <path d="M24 22 21 27M29 22 27 26M35 22 37 26M40 22 43 27" stroke="#060B1E" stroke-width="3"/>
+
+  <!-- cheek stripes -->
+  <path d="M9 27 17 30M9 34 16 36M55 27 47 30M55 34 48 36" stroke="#060B1E" stroke-width="3"/>
+
+  <!-- eyes -->
+  <path d="M22 33l7 2-7 3ZM42 33l-7 2 7 3Z" fill="#060B1E"/>
+
+  <!-- nose -->
+  <path d="M29 43h6l-3 4Z" fill="#060B1E"/>
+</svg>

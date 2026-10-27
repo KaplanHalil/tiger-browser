@@ -1,0 +1,8 @@
+dist/
+target/
+native/target/
+*.xpi
+*.zip
+*.log
+.DS_Store
+__MACOSX/

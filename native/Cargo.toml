@@ -1,0 +1,11 @@
+[package]
+name = "tiger-host"
+version = "0.1.0"
+edition = "2021"
+description = "Tiger Browser native messaging host"
+license = "MIT"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Tiger">
+  <defs>
+    <mask id="tiger-cut">
+      <rect width="32" height="32" fill="#fff"/>
+      <!-- eyes -->
+      <path d="M9 14h5v4H9ZM18 14h5v4h-5Z" fill="#000"/>
+      <!-- cheek stripes -->
+      <path d="M3 13h5M3 17h5M29 13h-5M29 17h-5" stroke="#000" stroke-width="2"/>
+      <!-- nose -->
+      <path d="M15 22h2v2h-2Z" fill="#000"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#tiger-cut)">
+    <!-- ears -->
+    <path d="M3 11 6 2 13 7Z" fill="#7D82D9"/>
+    <path d="M29 11 26 2 19 7Z" fill="#7D82D9"/>
+    <!-- head -->
+    <path d="M3 11h26v10L16 30 3 21Z" fill="#7D82D9"/>
+    <!-- muzzle -->
+    <path d="M11 19h10v5l-5 4-5-4Z" fill="#C2C4F0"/>
+  </g>
+</svg>
