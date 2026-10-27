@@ -26,6 +26,7 @@ if [[ "$KEEP_DATA" -eq 1 ]]; then
   echo "Profil korundu: $PROFILE"
 else
   rm -rf "$PROFILE"
+  rm -rf "$CONFIG"
   rm -rf "$STATE"
   echo "Profil ve Tiger verileri silindi: $PROFILE"
 fi

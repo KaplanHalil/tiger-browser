@@ -53,6 +53,8 @@ struct HyprMonitor {
     width: i64,
     #[serde(default)]
     height: i64,
+    #[serde(default)]
+    reserved: Vec<i64>,
     #[serde(default = "one")]
     scale: f64,
     #[serde(default)]
@@ -487,10 +489,13 @@ fn toggle_terminal() -> Result<Value, String> {
         return Err("monitor has no usable size".into());
     }
 
+    // Keep the terminal below the Omarchy bar instead of underneath it.
+    // Hyprland reports reserved space as [left, top, right, bottom].
+    let reserved_top = monitor.reserved.get(1).copied().unwrap_or(0).max(0);
     let width = (monitor_width * 40 / 100).max(480);
-    let height = monitor_height;
+    let height = (monitor_height - reserved_top).max(240);
     let x = monitor.x + monitor_width - width;
-    let y = monitor.y;
+    let y = monitor.y + reserved_top;
 
     let accent = current_theme()
         .ok()
